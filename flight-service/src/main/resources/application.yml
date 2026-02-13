@@ -1,0 +1,6 @@
+security:
+  jwt:
+    secret: "NDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0Mg=="
+
+server:
+  port: 8082

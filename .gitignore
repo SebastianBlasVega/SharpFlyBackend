@@ -1,0 +1,169 @@
+# =====================
+# SPRING BOOT / MAVEN
+# =====================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+/sharpfly
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Log files
+*.log
+logs/
+log/
+
+# Spring Boot
+spring-boot-*.log
+
+# =====================
+# NODE.JS / FRONTEND
+# =====================
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Angular
+.angular/
+.cache/
+
+# React/Vue
+.cache/
+.parcel-cache/
+.vite/
+
+# =====================
+# IDEs
+# =====================
+# IntelliJ IDEA / IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.metadata/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+.vscode/
+.recommenders/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# =====================
+# OPERATING SYSTEMS
+# =====================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# =====================
+# DOCKER
+# =====================
+*.env
+.env.local
+.env.*.local
+docker-compose.override.yml
+
+# =====================
+# OTHER
+# =====================
+# Files that might appear in the root of a volume
+.volume
+.eslintcache
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~.nib
+
+# Package Manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Certificates and Keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Application
+application-local.properties
+application-local.yml
+application-dev.properties
+application-dev.yml
