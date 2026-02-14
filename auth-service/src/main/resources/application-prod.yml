@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+security:
+  jwt:
+    secret: ${SECURITY_JWT_SECRET}
+    expiration-ms: ${SECURITY_JWT_EXPIRATION_MS:36000000}
+
+logging:
+  level:
+    com.jeremias: INFO
+    org.springframework.security: WARN

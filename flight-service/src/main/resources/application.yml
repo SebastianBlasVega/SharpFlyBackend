@@ -1,6 +1,57 @@
-security:
-  jwt:
-    secret: "NDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0Mg=="
-
 server:
   port: 8082
+
+spring:
+  application:
+    name: flight-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+security:
+  jwt:
+    secret: "NDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0Mg=="
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3307/flight_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: root_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    com.sharp: DEBUG
+    org.springframework.security: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+security:
+  jwt:
+    secret: ${SECURITY_JWT_SECRET}
+
+logging:
+  level:
+    com.sharp: INFO
+    org.springframework.security: WARN

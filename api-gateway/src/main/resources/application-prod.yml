@@ -1,0 +1,41 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # Auth Service - Authentication endpoints
+        - id: auth-service
+          uri: http://auth-service:8990
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=0
+
+        # Auth Service - User management
+        - id: auth-service-users
+          uri: http://auth-service:8990
+          predicates:
+            - Path=/api/v1/users/**
+          filters:
+            - StripPrefix=0
+
+        # Flight Service - All flight endpoints
+        - id: flight-service
+          uri: http://flight-service:8082
+          predicates:
+            - Path=/api/v1/airports/**,/api/v1/aircraft/**,/api/v1/routes/**,/api/v1/flight-templates/**,/api/v1/flight-instances/**
+          filters:
+            - StripPrefix=0
+
+        # Booking Service - All booking endpoints
+        - id: booking-service
+          uri: http://booking-service:8083
+          predicates:
+            - Path=/api/v1/bookings/**,/api/v1/passengers/**
+          filters:
+            - StripPrefix=0
+
+logging:
+  level:
+    com.sharp: INFO
+    org.springframework.cloud.gateway: INFO
+    org.springframework.web.reactive: WARN

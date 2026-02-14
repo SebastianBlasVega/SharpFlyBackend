@@ -6,6 +6,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
+import org.springframework.core.convert.converter.Converter;
 
 @Configuration
 @EnableWebSecurity
@@ -31,7 +35,22 @@ public class SecurityConfig {
 
         .anyRequest().authenticated()
       )
-      .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> {}))
+      .oauth2ResourceServer(oauth2 -> oauth2
+        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
+      )
       .build();
+  }
+
+  @Bean
+  public JwtAuthenticationConverter jwtAuthenticationConverter() {
+    JwtGrantedAuthoritiesConverter grantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+    // Leer roles del claim "roles" y agregar prefijo ROLE_
+    grantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
+    grantedAuthoritiesConverter.setAuthoritiesClaimName("roles");
+
+    JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+    jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(grantedAuthoritiesConverter);
+
+    return jwtAuthenticationConverter;
   }
 }
