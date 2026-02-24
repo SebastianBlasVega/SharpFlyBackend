@@ -11,5 +11,5 @@ spring:
 
 security:
   jwt:
-    secret: "NDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0Mg=="
+    secret: "NDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0MjQyNDI0Mg=="
     expiration-ms: 36000000
